@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{# loops through blogs object to populate the front page. #}
+
+    {% for blog in blogs %}
+
+        {% include "single-post.html" %}
+
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>DO YOU WANT TO DELETE THIS POST???</h2>
+<br>
+{{blog.title}}
+<br>
+<br>
+
+<form action="" method="post">
+    <button type="submit" value="Yes" name="delete">Yes</button>
+    <button type="submit" value="No" name="delete">No</button>
+</form>
+
+{% endblock %}
