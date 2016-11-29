@@ -118,8 +118,7 @@ def valid_pw(name, pw, h):
     if h == make_pw_hash(name, pw, salt):
         return True
 
-# Creating User table along with attributes (4)
-# passing the DB library
+# Models
 class Users(db.Model):
     """ Instantiates a class to store user data of
     User table  in the datastore  consisting of
@@ -326,7 +325,8 @@ class TemplateHandler(webapp2.RequestHandler, CookieFunctions):
         print out the template """
         self.write(self.render_str(template, **kw))
 
-# all pages will always have self.username based on user's cookie_id
+# all pages will always have self.username
+# based on user's cookie_id
     def initialize(self, *a, **kw):
         webapp2.RequestHandler.initialize(self, *a, **kw)
         self.username = self.username_from_cookie_id(self.get_cookie_id())
@@ -448,9 +448,9 @@ class BlogMainHandler(TemplateHandler, BlogFunctions):
             vote = BlogVotes.vote_check(self.username, int(like))
             like_error = [int(like)]
             if not self.username:
-                like_error.append('Please Login to vote')
+                like_error.append('Please Login to like')
             elif vote.get():
-                like_error.append("Can't vote!! You can vote once .")
+                like_error.append("You can like once .")
             # this elif is the success case.
             elif self.username != Blogs.blog_by_id(like).author:
                 BlogVotes.vote_entry(self.username, int(like))
@@ -458,7 +458,7 @@ class BlogMainHandler(TemplateHandler, BlogFunctions):
                 # to allow time for datastore to update.
                 time.sleep(1)
             else:
-                like_error.append("Can't vote on your own post!")
+                like_error.append("You can't like your own post!")
         elif unlike:
             vote = BlogVotes.vote_check(self.username, int(unlike))
             if vote.get():
@@ -539,7 +539,7 @@ class EditPostHandler(TemplateHandler, BlogFunctions):
         self.render(
             'edit-post.html',
             blog=blog,
-            delete_url='/blog/{blog_id}/delete'.format(blog_id=str(blog_id))
+            delete_post='/blog/{blog_id}/delete'.format(blog_id=str(blog_id))
             )
 
     def post(self, blog_id):
@@ -562,6 +562,7 @@ class EditPostHandler(TemplateHandler, BlogFunctions):
 
 
 class DeletePostHandler(TemplateHandler, BlogFunctions):
+    """ This is Class Handler for  deleting of blog posts """
     def get(self, blog_id):
         blog = Blogs.blog_by_id(blog_id)
         self.blog_author_check(blog, blog_id)
@@ -585,6 +586,7 @@ class DeletePostHandler(TemplateHandler, BlogFunctions):
 
 
 class EditCommentHandler(TemplateHandler, BlogFunctions):
+    """ This is Class Handler for  editing the comments """
     def get(self, comment_id):
         comment = Comments.comment_by_id(comment_id)
 
@@ -607,7 +609,7 @@ class EditCommentHandler(TemplateHandler, BlogFunctions):
         comment_content = self.request.get('comment-content')
 
         if not comment_content:
-            error = 'Must enter some text'
+            error = 'Please enter some text'
             self.render(
                 'edit-comment.html',
                 comment=comment,
@@ -620,6 +622,7 @@ class EditCommentHandler(TemplateHandler, BlogFunctions):
 
 
 class DeleteCommentHandler(TemplateHandler, BlogFunctions):
+    """ This is Class Handler for deleting the comments """
     def get(self, comment_id):
         comment = Comments.comment_by_id(comment_id)
 
@@ -651,6 +654,7 @@ class DeleteCommentHandler(TemplateHandler, BlogFunctions):
 
 
 class SignupHandler(TemplateHandler):
+    """ This is Class Handler for  registering on blog """
     def get(self):
         self.render('signup.html')
 
@@ -668,7 +672,7 @@ class SignupHandler(TemplateHandler):
         }
 
         if Users.user_hashed_pw(username):
-            params['username_error'] = "Username already taken."
+            params['username_error'] = "Username already exist."
             valid_input = False
 
         if not self.valid_reg_check(username, user_re):
@@ -698,6 +702,7 @@ class SignupHandler(TemplateHandler):
 
 
 class LoginHandler(TemplateHandler):
+    """ This is Class Handler for login into user blog """
     def get(self):
         self.render('login.html')
 
@@ -714,12 +719,13 @@ class LoginHandler(TemplateHandler):
 
 
 class LogoutHandler(TemplateHandler):
+    """ This is Class Handler for user logout from blog """
     def get(self):
         self.response.headers.add_header(
             'set-cookie',
             'user_id=; Path=/'
             )
-        self.redirect('/blog/signup')
+        self.redirect('/blog')
 
 
 

@@ -1,49 +1,37 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-{% include "single-post.html" %}
-
-<div class="row">
-    <div class="col-md-6 last-modified">
-        {% if time_diff > 1 %}
-        Last modified: {{blog.last_modified.strftime('%b %d, %Y - %I:%M%p')}}
-        {% endif %}
-    </div>
-    <div class="col-md-6">
-        {% if blog.author == username %}
-        <a href="{{edit_url}}">
-            <span class="btn btn-success">
+{% extends "base.html" %} {% block content %} {% include "single-post.html" %}
+<div class="col-md-6 last-modified">
+    {% if time_diff > 1 %} Last modified: {{blog.last_modified.strftime('%b %d, %Y - %I:%M%p')}} {% endif %}
+</div>
+<div class="col-md-6">
+    {% if blog.author == username %}
+    <a href="{{edit_url}}">
+        <span class="btn btn-success edit-post">
             EDIT POST
             </span>
-        </a>
-        {% endif %}
-    </div>
+    </a>
+    {% endif %}
 </div>
-<br>
-
-
-
-<h3>COMMENTS</h3>
-<hr>
-
-<form action="" method="post">
-    <textarea class="comment-area" name="comment-content" id="" cols="50" rows="10"></textarea>
-    <div class="error">
-        {{error}}
-    </div>
-    <input type="submit" class="btn btn-warning" name="comment-submit">
-</form>
-
-{% for comment in comments_list %}
-<br>
-<br>
-<div class="row comment-row">
-    <div class="col-md-10 comment-content">Comments: {{comment.content}}</div>
+<div class="col-md-12 comments">
+    <h4>COMMENTS</h4>
     <hr>
 </div>
-<div class="row">
-    <div class="col-md-6 authorname"> Author: {{comment.author}}</div>
+<div class="col-md-12">
+    <form method="post">
+        <textarea class="comment-area" name="comment-content" id="" cols="50" rows="5"></textarea>
+        <div class="error">
+            {{error}}
+        </div>
+        <input type="submit" class="btn btn-warning comment-submit" name="comment-submit">
+    </form>
+</div>
+<div class="col-md-12">
+    {% for comment in comments_list %}
+    <div class="comment-content"><b>Comment:</b> {{comment.content}}</div>
+</div>
+    <div class="col-md-6">
+        <div class="comment-by-author"> Author: {{comment.author}}
+        </div>
+    </div>
     <div class="col-md-6">
         <!-- Same as edit link for the post, but for comments. -->
         <!-- only comment authors will see the edit / delete links -->
@@ -51,14 +39,12 @@
         <span>
             <a href="/blog/{{comment.key().id()}}/cmt-edt" class="btn btn-success">EDIT COMMIT</a>
         </span>
-
         <span>
-            <a href="/blog/{{comment.key().id()}}/cmt-del" class="btn btn-success">DELETE COMMIT</a>
-        </span>
-        {% endif %}
+            <a href="/blog/{{comment.key().id()}}/cmt-del" class="btn btn-danger">DELETE COMMIT</a>
+        </span> {% endif %}
     </div>
+
+{% endfor %} {% endblock %}
 </div>
-
-{% endfor %}
-
-{% endblock %}
+<body>
+    </html>

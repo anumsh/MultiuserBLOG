@@ -1,40 +1,41 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-<div class="container-fluid">
+{% extends "base.html" %} {% block content %}
+<div class="col-md-12">
     <h2>EDIT POST</h2>
-    <form action="" method="post">
+    <hr>
+</div>
+<div class="col-md-12">
+    <form method="post">
         <div>
-            <label for="">
+            <label for="title">
                 <div>Title</div>
-                <input class="title" type="text" name="subject" value="{{blog.title}}{{blog_title}}">
             </label>
-        </div>
-        <br>
-        <div>
-            <label for="">
+            <div>
+                <input class="title" type="text" name="subject" size="40" value="{{blog.title}}{{blog_title}}">
+            </div>
+            <label for="blog">
                 <div>Blog</div>
-                <textarea class="content-area" name="content" id="" cols="" rows="7">{{blog.content}}{{blog_content}}</textarea>
             </label>
+            <div>
+                <textarea class="blog-content" name="content" id="" cols="40" rows="7">{{blog.content}}{{blog_content}}</textarea>
+            </div>
+            <div class="error">
+                {{error}}
+            </div>
         </div>
-        <div class="error">
-            {{error}}
-        </div>
-        <input type="submit">
+        <input class="btn btn-info" type="submit">
         <br>
         <br>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-md-6">
                 <a href="/blog">
-                    <span class="cancel-div btn btn-link">
-                        CANCEL EDIT
+                    <span class="cancel-div btn btn-success">
+                        CANCEL EDIT POST
                     </span>
                 </a>
             </div>
-            <div class="col-sm-6">
-                <a href="{{delete_url}}">
-                    <span class="delete-div btn btn-link">
+            <div class="col-md-6">
+                <a href="{{delete_post}}">
+                    <span class="delete-div btn btn-danger">
                         DELETE POST
                     </span>
                 </a>

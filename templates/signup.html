@@ -1,34 +1,45 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-
-        <h1>SIGNUP FORM</h1>
-        <div class="container signup-container">
-            <form method="post">
-                <div class="row">
-                    <div class="col">Username</div>
-                    <div class="col"><input type="text" name="username" value="{{user}}"></div>
-                    <div class="col_error">{{username_error}}</div>
-                </div>
-                <div class="row">
-                    <div class="col">Password</div>
-                    <div class="col"><input type="password" name="password"></div>
-                    <div class="col_error">{{password_error}}</div>
-                </div>
-                <div class="row">
-                    <div class="col">Verify Password</div>
-                    <div class="col"><input type="password" name="verify"></div>
-                    <div class="col_error">{{password_mismatch}}</div>
-                </div>
-                <div class="row">
-                    <div class="col">Email(Optional)</div>
-                    <div class="col"><input type="text" name="email" value="{{email}}"></div>
-                    <div class="col_error">{{email_error}}</div>
-                </div>
-                <br>
-                <input type="submit">
-            </form>
-        </div>
-
+{% extends "base.html" %} {% block content %}
+<div class="col-md-12">
+    <h1 class="text-center">SIGN-UP</h1>
+</div>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <form method="post">
+            <div class="row">
+                <label>
+                    <div>Username</div>
+                </label>
+                <input type="text" name="username" value="{{user}}">
+                <div class="col_error">{{username_error}}</div>
+            </div>
+            <div class="row">
+                <label>
+                    <div>Password</div>
+                </label>
+                <input type="password" name="password">
+                <div class="col_error">{{password_error}}</div>
+            </div>
+            <div class="row">
+                <label>
+                    <div>Verify Password</div>
+                </label>
+                <input type="password" name="verify">
+                <div class="col_error">{{password_mismatch}}</div>
+            </div>
+            <div class="row">
+                <label>
+                    <div>Email (Optional)</div>
+                </label>
+                <input type="text" name="email" value="{{email}}">
+                <div class="col_error">{{email_error}}</div>
+            </div>
+            <br>
+            <input class="btn btn-info" type="submit">
+        </form>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
 {% endblock %}

@@ -1,9 +1,12 @@
+<!-- this is base file in which we set our header which is
+display in all pages and main content is under block content-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8"> {% if redirect_main == True %}
-    <meta http-equiv="refresh" content="3; url=/blog"> {% endif %}
+    <meta http-equiv="refresh" content="2; url=/blog"> {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -21,29 +24,25 @@
     <div class="container">
         <header>
             <div class="row">
-                <div class="col-md- header-div">
-                    <a href="/blog"> <h1 class="blog-head text-center"> AS BLOG</h1> </a>
+                <div class="col-md-12">
+                    <a href="/blog">
+                        <h1 class="blog-head"> AS BLOG</h1> </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 login-logout">
+                    {% if username %} Hi, {{username}} |
+                    <a href="/blog/logout">LOGOUT</a> {% else %}
+                    <a href="/blog/signup">SIGNUP</a> | <a href="/blog/login">LOGIN</a> {% endif %}
+                </div>
+                <div class="col-md-4 new-post">
+                    <a href="/blog/newpost" class="btn btn-primary new-post-span">
+                                NEW POST </a>
                 </div>
             </div>
         </header>
-        <div class="row">
-            <div class="col-md-8 account-links">
-                {% if username %} Hi, {{username}} |
-                <a href="/blog/logout">LOGOUT</a>
-                 {% else %}
-                <a href="/blog/signup">SIGNUP</a> | <a href="/blog/login">LOGIN</a> {% endif %}
-            </div>
-            <div class="col-md-4 new-post-div">
-                <a href="/blog/newpost" class="btn btn-primary new-post-span">
-                                NEW POST </a>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-        <div class="col-md-12">
-            {% block content %}
-            {% endblock %}
-        </div>
+        <div class="row main-content">
+            {% block content %} {% endblock %}
         </div>
     </div>
 </body>

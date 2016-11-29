@@ -2,26 +2,35 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="col-md-12">
     <h2>NEW POST</h2>
-    <form action="" method="post">
+</div>
+<div class="col-md-12">
+    <form method="post">
         <div>
-            <label for="">
+            <label>
                 <div>Title</div>
-                <input class="title" type="text" name="subject" value="{{blog_title}}">
-            </label>
+                </label>
+                <div>
+                <input class="title" type="text" name="subject" size="50" value="{{blog_title}}">
+                </div>
+
         </div>
-        <br>
+        </div>
+      <div class="col-md-12">
         <div>
-            <label for="">
+            <label>
                 <div>Blog</div>
-                <textarea class="content-area" name="content" id="" cols="" rows="7">{{blog_content}}</textarea>
-            </label>
+                </label>
+                <div>
+                <textarea class="content-area" name="content" id="" cols="50" rows="10">{{blog_content}}</textarea>
+                </div>
         </div>
-        <div class="error">
+    </div>
+        <div class="col-md-12 error">
             {{error}}
         </div>
-        <input type="submit">
+        <input class="btn btn-info" type="submit">
     </form>
 </div>
 {% endblock %}

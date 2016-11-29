@@ -1,49 +1,35 @@
-
-    <div class="row title-row">
-        <div class="col-md-9 blog-title">
-            <a href="/blog/{{blog.key().id()}}">{{blog.title}}</a>
-        </div>
-        <div class="col-md-3 blog-date">
-            <span class="date-span">
+<div class="col-md-9 blog-title">
+    <a href="/blog/{{blog.key().id()}}">{{blog.title}}</a>
+</div>
+<div class="col-md-3 blog-date">
+    <span class="date-span">
                 {{blog.created.strftime('%b %d, %Y - %I:%M%p')}}
             </span>
-        </div>
-    </div>
-    <div class="row">
-        <hr>
-    </div>
-    <div class="row">
-        <div class="col-md-12 blog-content"> {{blog.content}}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 author-name">
-            Author: {{blog.author}}
-            <br>
-        </div>
-    </div>
+</div>
+<div class="col-md-12 line">
+    <hr>
+</div>
+<div class="col-md-12 blog-content">
+    {{blog.content}}
+</div>
+<div class="col-md-12 author-name">
+    Author: {{blog.author}}
     <br>
-    <div class="row">
-        <div class="col-md-3">
-            <form action="" method="post">
-                {% if not vote_dict[blog.key().id()][1] %}
-                {# <input type="submit" value="Like" name="like"> #}
-                <button type="submit" value="{{blog.key().id()}}" class="btn btn-info" name="like">Like</button>
-                {% else %}
-                {# <input type="submit" value="LIKED!" name="unlike"> #}
-                <button type="submit" value="{{blog.key().id()}}" class="btn btn-success" name="unlike">LIKED!</button>
-                {% endif %}
-                 - {{vote_dict[blog.key().id()][0]}}
-            </form>
-            <div class="like_error">
-                {% if like_error and like_error[0] == blog.key().id() %}
-                {{like_error[1]}}
-                {% endif %}
-            </div>
-        </div>
-        <div class="col-md-3">
-
-        </div>
-
+</div>
+<br>
+<div class="col-md-12">
+    <form method="post">
+        {% if not vote_dict[blog.key().id()][1] %} {#
+        <input type="submit" value="Like" name="like"> #}
+        <button type="submit" class="btn-lg btn btn-info" value="{{blog.key().id()}}" name="like">Like</button>
+        {% else %} {#
+        <input type="submit" value="LIKED!" name="unlike"> #}
+        <button type="submit" value="{{blog.key().id()}}" class=" btn-lg btn btn-success" name="unlike">LIKED!</button>
+        {% endif %} - {{vote_dict[blog.key().id()][0]}}
+    </form>
+    <div class="like_error">
+        {% if like_error and like_error[0] == blog.key().id() %} {{like_error[1]}} {% endif %}
     </div>
-    <br>
-    <br>
+</div>
+<br>
+<br>
