@@ -23,7 +23,7 @@ Multi-User-Blog project is part of UDACITY FULL STACK NANODEGREE.
 
 # Live Version Of the Blog Project
 
-[Blog Link](https://multi-user-147907.appspot.com)
+[Blog Link](http://anumblogproject.appspot.com/blog)
 
 # Files Used in project
 * app.yaml
