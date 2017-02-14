@@ -12,7 +12,7 @@ Multi-User-Blog project is part of UDACITY FULL STACK NANODEGREE.
 
 # How to Deploy your project
 
-* You can deploy your project with gcloud app deploy.
+* You can deploy your project with gcloud app deploy <project> or runthe command   `appcfg.py --oauth2_credential_file=~/.appcfg_oauth2_tokens update .` if you install App Engine.
 * View your project at unique-name.appspot.com.
 * You should see your project
 
@@ -29,8 +29,10 @@ Multi-User-Blog project is part of UDACITY FULL STACK NANODEGREE.
 * app.yaml
 * index.yaml
 * bloy.py
+* models folder that includes datastore tables
+* handlers folder that includes all handlers.
 * static folder that includes main.css file
 * Templates folder includes all html pages
 
 # Licence
-This blog is licenced under  © 2011–2016 Udacity, Inc.
+This blog is licenced under  © 2011–2017 Udacity, Inc.
