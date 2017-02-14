@@ -1,5 +1,6 @@
 /* this is CSS file for styling the pages */
 
+
 [class*="zocial-"]:before {
     color: #c09f80;
     display: inline-block;
@@ -19,9 +20,9 @@ div#social a {
 div#social a:last-of-type {
     margin: 0;
 }
-
 body {
     background-color: #f4f4f4;
+
 }
 
 .container {
@@ -44,20 +45,15 @@ body {
 }
 
 .new-post {
-    text-align: right;
+    text-align: center;
     color: #FF5733;
 }
 
-.newpost,
-.editpost,
-.editcomment,
-.deletepost,
-.deletecomment {
-    color: #E2F0F2;
+.newpost, .editpost, .editcomment , .deletepost, .deletecomment {
+	color: #E2F0F2;
 }
-
 .main-content {
-    background-color: #565656;
+    background-color:#565656;
     margin-bottom: 1em;
 }
 
@@ -75,14 +71,12 @@ label + label {
 .col_error {
     color: #E7E780;
 }
-
 hr {
     margin-top: 0.7em;
     border-top: 0.1em solid #c0b283;
 }
-
 .margin-check {
-    margin-bottom: 0.7em;
+	margin-bottom: 0.7em;
 }
 
 h1 {
@@ -91,8 +85,7 @@ h1 {
 
 .welcome {
     font-family: Arial;
-    text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     color: #E7E780;
 }
 
@@ -107,6 +100,7 @@ h1 {
     height: 35px;
 }
 
+
 .blog-date {
     color: #999;
     margin: 30px 0 3px 0;
@@ -116,11 +110,9 @@ h1 {
     color: #A29D5C;
     margin-top: 20px;
 }
-
 textarea {
-    background-color: white;
+background-color: white;
 }
-
 .date-span {
     position: absolute;
     bottom: 5px;
@@ -157,52 +149,33 @@ textarea {
 }
 
 a {
-    color: #C09F80;
+ color: #C09F80;
 }
-
-a:hover {
-    color: #F2DE5E;
-}
-
 .comment-by-author {
     margin-top: 10px;
     font-size: 15px;
-    color: #5E8ADB;
-}
-
-.votes-color {
-    color: #CED4DF;
+    color: #CD6155;
 }
 
 .comment-content {
     margin-top: 10px;
     font-size: 15px;
     font-family: Arial;
-    color: #CDB620;
-}
-
-.comment-contents {
-    margin-top: 20px;
-    font-size: 17px;
-    font-family: Arial;
-    color: #F0F3F4;
-}
-
-.like-color,
-.liked-color {
-    color: #262624;
+   color: #56DE20;
 }
 
 .author-comment {
-    color: #2F5CB0;
+    color: #212F3C;
     font-size: 15px;
     margin-bottom: 10px;
-    font-weight: bold;
+    font-weight:bold;
 }
 
 .comments {
-    color: #47C6D3;
+    color: #FFa500;
     font-family: Arial;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .blog-delete-title {
@@ -211,26 +184,24 @@ a:hover {
     height: 35px;
 }
 
-.blog-delete-content,
-.delete-comment-content {
+.blog-delete-content, .delete-comment-content {
     margin: 12px 0 10px 0;
+    
 }
 
-.delete-comment-content {
-    color: #56DE20;
+.delete-comment-content , {
+color: #56DE20;
 }
 
 .blog-delete-content {
-    color: #ADBFB7;
+color: #ADBFB7;
 }
-
 .title {
-    color: #ADBFB7;
-}
+color: #ADBFB7;
 
-.delete-comment-title,
-.blog-delete-title {
-    color: #C09F80;
+}
+.delete-comment-title , .blog-delete-title {
+color: #C09F80;
 }
 
 footer {

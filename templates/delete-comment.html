@@ -1,19 +1,15 @@
 {% extends "base.html" %} {% block content %}
-<div class="col-md-12">
-    <h2>DO YOU WANT TO DELETE THIS COMMENT???</h2>
-    <hr>
-</div>
-<div class="col-md-12">
-    <h3> {{blog.title}}</h3>
+<div class="col-md-12 deletecomment">
+    <h3>Do you want to delete the comment?</h3>
     <hr>
 </div>
 <div class="col-md-12 delete-comment-content">
-    Comments:{{comment.content}}
+    <h4> {{comment.content}} </h4>
 </div>
-<div class="col-md-12">
+<div class="col-md-12 margin-check">
     <form action="" method="post">
-        <button type="submit" class="btn btn-success" value="Yes" name="delete">Yes</button>
-        <button type="submit" class="btn btn-success" value="No" name="delete">No</button>
+        <button type="submit" class="btn btn-secondary" value="Yes" name="delete">Yes</button>
+        <button type="submit" class="btn btn-secondary" value="No" name="delete">No</button>
     </form>
 </div>
 {% endblock %}

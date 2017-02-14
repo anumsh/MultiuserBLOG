@@ -2,49 +2,35 @@
 <div class="col-md-6 last-modified">
     {% if time_diff > 1 %} Last modified: {{blog.last_modified.strftime('%b %d, %Y - %I:%M%p')}} {% endif %}
 </div>
-<div class="col-md-6">
+<div class="col-md-6 text-right">
     {% if blog.author == username %}
     <a href="{{edit_url}}">
-        <span class="btn btn-success edit-post">
-            EDIT POST
+        <span class="btn-lg btn-secondary edit-post">
+          <b>EDIT POST </b>
             </span>
     </a>
     {% endif %}
 </div>
 <div class="col-md-12 comments">
-    <h4>COMMENTS</h4>
+    <h3>Comments:- </h3>
     <hr>
 </div>
 <div class="col-md-12">
     <form method="post">
-        <textarea class="comment-area" name="comment-content" id="" cols="50" rows="5"></textarea>
+        <textarea class="comment-area" name="comment-content" id="" cols="80" rows="5"></textarea>
         <div class="error">
             {{error}}
         </div>
-        <input type="submit" class="btn btn-warning comment-submit" name="comment-submit">
+        <input type="submit" class="btn btn-info comment-submit" name="comment-submit">
     </form>
 </div>
 <div class="col-md-12">
     {% for comment in comments_list %}
-    <div class="comment-content"><b>Comment:</b> {{comment.content}}</div>
+    <div class="comment-content"> <b>Comment by :</b> <span class="comment-by-author text-capitalize"> {{comment.author}} </span>
+        <span class="comment-contents"> {{comment.content}} </span> </div>
+    <!-- Same as edit link for the post, but for comments. -->
+    <!-- only comment authors will see the edit / delete links -->
+    {% if comment.author == username %}
+    <a href="/blog/{{comment.key().id()}}/cmt-edt" class="btn btn-warning">Edit</a>
+    <a href="/blog/{{comment.key().id()}}/cmt-del" class="btn btn-warning">Delete</a> {% endif %} {% endfor %} {% endblock %}
 </div>
-    <div class="col-md-6">
-        <div class="comment-by-author"> Author: {{comment.author}}
-        </div>
-    </div>
-    <div class="col-md-6">
-        <!-- Same as edit link for the post, but for comments. -->
-        <!-- only comment authors will see the edit / delete links -->
-        {% if comment.author == username %}
-        <span>
-            <a href="/blog/{{comment.key().id()}}/cmt-edt" class="btn btn-success">EDIT COMMIT</a>
-        </span>
-        <span>
-            <a href="/blog/{{comment.key().id()}}/cmt-del" class="btn btn-danger">DELETE COMMIT</a>
-        </span> {% endif %}
-    </div>
-
-{% endfor %} {% endblock %}
-</div>
-<body>
-    </html>

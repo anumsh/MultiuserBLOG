@@ -19,11 +19,11 @@
 <br>
 <div class="col-md-12">
     <form method="post">
-        {% if not vote_dict[blog.key().id()][1] %}
-        <button type="submit" class="btn-sm btn btn-secondary like-color" value="{{blog.key().id()}}" name="like">Like</button>
-        {% else %}
-        <button type="submit" value="{{blog.key().id()}}" class=" btn-sm btn btn-secondary liked-color" name="unlike">LIKED!</button>
-        {% endif %} <span class="votes-color"> - {{vote_dict[blog.key().id()][0]}} </span>
+        {% if not vote_dict[blog.key().id()][1] %} 
+        <button type="submit" class="btn-lg btn btn-info" value="{{blog.key().id()}}" name="like">Like</button>
+        {% else %} 
+        <button type="submit" value="{{blog.key().id()}}" class=" btn-lg btn btn-success" name="unlike">LIKED!</button>
+        {% endif %} - {{vote_dict[blog.key().id()][0]}}
     </form>
     <div class="like_error">
         {% if like_error and like_error[0] == blog.key().id() %} {{like_error[1]}} {% endif %}

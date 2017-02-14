@@ -1,5 +1,6 @@
 <!-- this is base file in which we set our header which is
 display in all pages and main content is under block content-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,28 +40,27 @@ display in all pages and main content is under block content-->
                     <a href="/blog/signup">SignUp</a> | <a href="/blog/login">Login</a> {% endif %}
                 </div>
                 <div class="col-md-4 new-post">
-                    <a href="/blog/newpost" class="btn-lg  btn-secondary new-post-span">
-                        <b>  NEW POST </b></a>
+                    <a href="/blog/newpost" class="btn btn-primary new-post-span">
+                                NEW POST </a>
                 </div>
-                <div class="row">
-                </div>
+		<div class="row">
+		</div>
             </div>
         </header>
-        <section>
-            <div class="row main-content">
-                {% block content %} {% endblock %}
-            </div>
-        </section>
-        <footer class="text-center" id="social">
-            <div>
-                Udacity- Multi-User Blog Nanodegree Project made by Anum Sharma </div>
-            <div>
-                <a href="https://github.com/anumsh" class="zocial-github"></a>
-                <a href="https://www.linkedin.com/in/anumsharma" class="zocial-linkedin"></a>
-                <a href="https://accounts.google.com/" class="zocial-googleplus"></a>
-            </div>
-        </footer>
-    </div>
+	<section>
+        <div class="row main-content">
+            {% block content %} {% endblock %}
+        </div>
+	</section>
+	<footer class="text-center"  id="social">
+        	<div>
+                  Udacity- Multi-User Blog Nanodegree Project made by Anum Sharma </div>
+<div> <a href="https://github.com/anumsh" class="zocial-github"></a> <a href="https://www.linkedin.com/in/anumsharma" class="zocial-linkedin"></a> <a href="https://accounts.google.com/" class="zocial-googleplus"></a> 
+        	</div>
+    	</footer>
+	</div>
+	
+
 </body>
 
 </html>

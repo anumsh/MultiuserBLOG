@@ -28,16 +28,16 @@
         <div class="row margin-check">
             <div class="col-md-12">
                 <a href="/blog">
-                    <span class="cancel-div btn btn-warning">
+                    <span class="cancel-div btn btn-success">
                         Cancel
                     </span>
                 </a>
                 <a href="{{delete_post}}">
-                    <span class="delete-div btn btn-warning">
+                    <span class="delete-div btn btn-danger">
                         Delete
                     </span>
                 </a>
-            </div>
+</div>
         </div>
     </form>
 </div>

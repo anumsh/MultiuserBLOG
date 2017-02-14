@@ -9,8 +9,8 @@
 <div class="col-md-12 blog-delete-content"> {{blog.content}}</div>
 <div class="col-md-12 margin-check">
     <form action="" method="post">
-        <button class="btn btn-secondary" type="submit" value="Yes" name="delete">Yes</button>
-        <button class="btn btn-secondary" type="submit" value="No" name="delete">No</button>
+        <button class="btn btn-danger" type="submit" value="Yes" name="delete">Yes</button>
+        <button class="btn btn-success" type="submit" value="No" name="delete">No</button>
     </form>
 </div>
 {% endblock %}

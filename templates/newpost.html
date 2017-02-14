@@ -1,36 +1,34 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-<div class="col-md-12">
-    <h2>NEW POST</h2>
+{% extends "base.html" %} {% block content %}
+<div class="col-md-12 newpost">
+    <h2>New Post</h2>
 </div>
 <div class="col-md-12">
     <form method="post">
         <div>
             <label>
                 <div>Title</div>
-                </label>
-                <div>
-                <input class="title" type="text" name="subject" size="50" value="{{blog_title}}">
-                </div>
-
+            </label>
+            <div>
+                <input class="title" type="text" placeholder="Blog Title" name="subject" size="50" value="{{blog_title}}">
+            </div>
         </div>
-        </div>
-      <div class="col-md-12">
+</div>
+<div class="col-md-12">
+    <div>
+        <label>
+            <div>Blog</div>
+        </label>
         <div>
-            <label>
-                <div>Blog</div>
-                </label>
-                <div>
-                <textarea class="content-area" name="content" id="" cols="50" rows="10">{{blog_content}}</textarea>
-                </div>
+            <textarea class="content-area" name="content" placeholder="Blog Content" id="" cols="50" rows="10">{{blog_content}}</textarea>
         </div>
     </div>
-        <div class="col-md-12 error">
-            {{error}}
-        </div>
-        <input class="btn btn-info" type="submit">
-    </form>
+</div>
+<div class="col-md-12 error">
+    {{error}}
+</div>
+<div class="col-md-12 error">
+    <input class="btn btn-info" type="submit">
+</div>
+</form>
 </div>
 {% endblock %}
